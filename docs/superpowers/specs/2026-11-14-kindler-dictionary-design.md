@@ -139,7 +139,7 @@ README.md
 
 **Flow:**
 1. On install: create the context menu item
-   `Look up "%s" in Kindler Dictionary`, `contexts: ["selection"]`.
+   `Translate "%s" in Kindler`, `contexts: ["selection"]`.
 2. On click: `word = info.selectionText`, trimmed of whitespace and of
    punctuation at either end. If it is empty, do nothing.
 3. Inject `content.js` into `tab.id` / `info.frameId` (so selections inside

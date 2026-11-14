@@ -1,8 +1,15 @@
-// Injected on each lookup; the guard keeps one listener per frame.
+// Injected on each lookup; the guard keeps one listener per frame. After an add-on update
+// Chrome keeps the old script's globals but its listener is dead: then install again.
 (() => {
-  if (window.__kindlerDictionary) return;
-  window.__kindlerDictionary = true;
+  if (window.__kindlerDictionaryAlive?.()) return;
   const api = globalThis.browser ?? chrome;
+  window.__kindlerDictionaryAlive = () => {
+    try {
+      return !!api.runtime.id;
+    } catch {
+      return false;
+    }
+  };
 
   const CSS = `
     :host { all: initial; }
@@ -77,6 +84,8 @@
     const root = host.attachShadow({ mode: "closed" });
     root.append(el("style", CSS));
     const box = el("div", null, "box");
+    box.setAttribute("role", "dialog");
+    box.setAttribute("aria-label", `Kindler Dictionary: ${word}`);
     const head = el("div", null, "head");
     const note = el("span", null, "note");
     const x = el("button", "×", "x");
@@ -84,6 +93,7 @@
     x.onclick = close;
     head.append(el("b", word), note, x);
     const body = el("div", null, "body");
+    body.setAttribute("aria-live", "polite");
     body.append(el("p", "Looking up…"));
     const foot = el("div", null, "foot");
     box.append(head, body, foot);
@@ -127,6 +137,7 @@
       foot.append(el("small", `Data: ${msg.data.data_date}. Wiktionary text: CC BY-SA 4.0.`));
     }
     place();
+    btn.focus({ preventScroll: true }); // keyboard users land in the box; Esc closes it
   }
 
   api.runtime.onMessage.addListener((msg) => {
