@@ -1,13 +1,13 @@
 # Publishing on the Chrome Web Store
 
-You need: a Google account, a one-time US$5 registration fee, the zip from `./package.sh`, the texts in [listing.md](listing.md), and the images in `images/`.
+You need: a Google account, a Chrome Web Store developer account (one-time US$5 registration fee, charged once per Google account; skipped if that account already paid it), the zip from `./package.sh`, the texts in [listing.md](listing.md), and the images in `images/`.
 
 The same listing works for Chromium, Brave, Edge and other Chromium-based browsers: they install from the Chrome Web Store.
 
 ## One-time: developer account
 
 1. Open https://chrome.google.com/webstore/devconsole and sign in with the Google account that should own the add-on.
-2. Accept the developer agreement and pay the US$5 registration fee.
+2. Accept the developer agreement and pay the US$5 registration fee if the console asks for it (an account that registered before is not charged again).
 3. **Account** tab:
    - Publisher name (shown on the listing), for example `Kindler`.
    - Verify the contact email.
