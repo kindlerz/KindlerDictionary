@@ -2,7 +2,9 @@ const api = globalThis.browser ?? chrome;
 const KINDLER = "https://kindler.ink";
 let lastId = 0;
 
-api.runtime.onInstalled.addListener(() => {
+// menus survive reloads and updates; recreate so a changed title applies (create() rejects a duplicate id)
+api.runtime.onInstalled.addListener(async () => {
+  await api.contextMenus.removeAll();
   api.contextMenus.create({
     id: "lookup",
     title: 'Translate "%s" in Kindler',
