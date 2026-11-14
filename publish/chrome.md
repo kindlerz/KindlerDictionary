@@ -54,9 +54,15 @@ The same listing works for Chromium, Brave, Edge and other Chromium-based browse
      - I do not use or transfer user data for purposes that are unrelated to my item's single purpose
      - I do not use or transfer user data to determine creditworthiness or for lending purposes
    - Privacy policy URL: `https://github.com/kindlerz/KindlerDictionary/blob/master/PRIVACY.md`
-4. **Distribution** tab: Free, **Public**, all regions.
-5. **Submit for review.** Review usually takes a few days, sometimes longer for a first item. You get an email when it is approved or rejected. By default it is published right after approval.
-6. **README:** once it's live, replace the Chrome `(#) (coming soon)` link in the main [README](../README.md) with the store page (`https://chromewebstore.google.com/detail/<id>`, shown in the developer console). Commit and push.
+4. **Test instructions** tab: leave **username** and **password** empty (no accounts, kindler.ink is public). In the additional instructions field paste:
+   ```
+   No login needed. Select "Haus" on any web page, right-click → Translate "Haus" in Kindler. A box with the German meaning appears next to the word. Also try "yesterday" (English → German fallback) and "usw.", and the "Open in new tab" button.
+   Backend: https://kindler.ink/dictionary/search.json?q=Haus
+   Source (no build step, the zip is the source): https://github.com/kindlerz/KindlerDictionary
+   ```
+5. **Distribution** tab: Free, **Public**, all regions.
+6. **Submit for review.** Review usually takes a few days, sometimes longer for a first item. You get an email when it is approved or rejected. By default it is published right after approval.
+7. **README:** once it's live, replace the Chrome `(#) (coming soon)` link in the main [README](../README.md) with the store page (`https://chromewebstore.google.com/detail/<id>`, shown in the developer console). Commit and push.
 
 ## Updating to a new version
 
