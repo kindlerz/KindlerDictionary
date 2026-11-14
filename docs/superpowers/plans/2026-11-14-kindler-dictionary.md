@@ -19,7 +19,7 @@
 - `data_collection_permissions.required`: the website-content type. Verify the exact name on https://extensionworkshop.com/documentation/develop/firefox-builtin-data-consent/.
 - Entry text is untrusted: build the DOM with `textContent` only, never `innerHTML`.
 - `KINDLER = "https://kindler.ink"` constant in `background.js`. For local testing, swap it and add the local origin to `host_permissions`, then revert before committing.
-- Context menu title: `Look up "%s" in Kindler Dictionary`.
+- Context menu title: `Translate "%s" in Kindler`, with the add-on icon (user feedback on the spike).
 - Small local commits. No push, no PR and no GitHub repo creation without asking the user.
 
 ## Review Focus

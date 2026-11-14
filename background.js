@@ -5,7 +5,7 @@ let lastId = 0;
 api.runtime.onInstalled.addListener(() => {
   api.contextMenus.create({
     id: "lookup",
-    title: 'Look up "%s" in Kindler Dictionary',
+    title: 'Translate "%s" in Kindler',
     contexts: ["selection"],
   });
 });

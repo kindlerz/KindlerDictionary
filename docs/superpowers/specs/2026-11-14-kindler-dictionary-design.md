@@ -14,7 +14,7 @@ a small box on the page. One click opens the full entry in a new tab.
 ## Goals
 
 - Firefox and Chrome add-on named **Kindler Dictionary**.
-- Select a word, right-click, choose "Look up "…" in Kindler Dictionary".
+- Select a word, right-click, choose `Translate "…" in Kindler`, shown with the add-on icon (user feedback on the spike, 2026-11-14).
 - A small box appears next to the selection, on the page, without opening a tab.
   It shows the entries.
 - The box has an **Open in new tab** button that opens the existing Kindler
