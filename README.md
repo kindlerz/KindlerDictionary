@@ -44,7 +44,6 @@ Punctuation around the selection is dropped (`„Haus,“` looks up `Haus`). Mul
 - **Local Kindler:** to test against a Kindler running on your machine, change `KINDLER` in `background.js` (for example `http://127.0.0.1:5000`) and add `"http://127.0.0.1/*"` to `host_permissions` in `manifest.json`.
 - **Publishing:** step-by-step store guides are in [publish/](publish/README.md). Privacy policy: [PRIVACY.md](PRIVACY.md).
 - **Packaging** for the stores: `./package.sh` builds `kindler-dictionary-<version>.zip` (version from `manifest.json`) with only the add-on's files. Bump `"version"` before each store upload.
-
 - **Data:** entries come from [wort](https://github.com/kasramp/wort), built from [German Wiktionary](https://de.wiktionary.org/) (CC BY-SA 4.0, via [kaikki.org](https://kaikki.org/)) and [OpenThesaurus](https://www.openthesaurus.de/).
 
 ## License

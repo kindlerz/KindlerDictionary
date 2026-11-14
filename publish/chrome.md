@@ -40,6 +40,7 @@ The same listing works for Chromium, Brave, Edge and other Chromium-based browse
    - Privacy policy URL: `https://github.com/kindlerz/KindlerDictionary/blob/master/PRIVACY.md`
 4. **Distribution** tab: Free, **Public**, all regions.
 5. **Submit for review.** Review usually takes a few days, sometimes longer for a first item. You get an email when it is approved or rejected. By default it is published right after approval.
+6. **README:** once it's live, replace the Chrome `(#) (coming soon)` link in the main [README](../README.md) with the store page (`https://chromewebstore.google.com/detail/<id>`, shown in the developer console). Commit and push.
 
 ## Updating to a new version
 

@@ -21,6 +21,7 @@ You need: a Mozilla account, the zip from `./package.sh`, and the texts in [list
 6. **Submit Version.** Listed add-ons are usually signed and public within minutes to a few hours after the automatic check. A human review can follow later; you get an email if they want changes.
 7. **Screenshot:** on the add-on's page in the Developer Hub, **Edit Product Page** → **Images** → upload `images/screenshot-1280x800.png`.
 8. **Check:** install it from AMO in normal Firefox, restart Firefox completely, select a word, and make sure **Translate "…" in Kindler** is in the right-click menu and works.
+9. **README:** in the main [README](../README.md), replace the Firefox `(#) (coming soon)` link with the add-on's AMO page (`https://addons.mozilla.org/firefox/addon/<slug>/`, shown on the Developer Hub). Commit and push.
 
 ## Updating to a new version
 
