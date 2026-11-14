@@ -35,8 +35,24 @@ The same listing works for Chromium, Brave, Edge and other Chromium-based browse
      - `scripting`: `Injects the script that draws the dictionary box next to the selected word, only after the user clicks the menu item.`
      - Host permission `https://kindler.ink/*`: `Fetches the dictionary entry for the selected word from kindler.ink, the dictionary's server.`
    - Remote code: **No, I am not using remote code**.
-   - Data usage: tick **Website content** only (the selected word). Leave the rest unticked.
-   - Tick all three certifications (not sold, not used for unrelated purposes, not used for credit).
+   - Data usage ("What user data do you plan to collect"). "Collect" means anything that leaves the browser, so the selected word counts:
+
+     | Data type | Tick? | Why |
+     |---|---|---|
+     | Personally identifiable information | No | |
+     | Health information | No | |
+     | Financial and payment information | No | |
+     | Authentication information | No | |
+     | Personal communications | No | |
+     | Location | No | |
+     | Web history | No | No page URLs or titles are sent |
+     | User activity | No | No clicks, keystrokes or scrolling are recorded |
+     | **Website content** | **Yes** | The selected text is sent to kindler.ink to look it up |
+
+   - Certifications: tick all three:
+     - I do not sell or transfer user data to third parties, outside of the approved use cases
+     - I do not use or transfer user data for purposes that are unrelated to my item's single purpose
+     - I do not use or transfer user data to determine creditworthiness or for lending purposes
    - Privacy policy URL: `https://github.com/kindlerz/KindlerDictionary/blob/master/PRIVACY.md`
 4. **Distribution** tab: Free, **Public**, all regions.
 5. **Submit for review.** Review usually takes a few days, sometimes longer for a first item. You get an email when it is approved or rejected. By default it is published right after approval.

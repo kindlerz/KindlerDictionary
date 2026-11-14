@@ -31,6 +31,18 @@ You need: a Mozilla account, the zip from `./package.sh`, and the texts in [list
 4. Optional "Release notes" (shown to users) and "Notes to reviewer".
 5. **Submit Version.** Users get the update automatically within a day.
 
+## Data usage
+
+AMO has no data-usage form. Firefox reads it from `manifest.json`:
+
+```json
+"data_collection_permissions": { "required": ["websiteContent"] }
+```
+
+- `websiteContent`: the selected text goes to kindler.ink. It is `required` because the add-on can't work without it; Firefox shows it at install and the user accepts it with the install.
+- Nothing else is declared: no browsing history (`browsingActivity`), no clicks or typing (`websiteActivity`), no personal data, no `technicalAndInteraction` (no analytics or crash reports).
+- If the add-on ever sends more, add the matching type here and update [PRIVACY.md](../PRIVACY.md) and the privacy policy on AMO. The full list of types: https://extensionworkshop.com/documentation/develop/firefox-builtin-data-consent/
+
 ## Good to know
 
 - The add-on ID `kindler-dictionary@kindler.ink` (in `manifest.json`) is permanent. Never change it, or AMO treats it as a different add-on.
