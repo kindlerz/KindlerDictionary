@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Kindler Dictionary",
+  "version": "0.1.0",
+  "description": "Select a German word, right-click, and read its German meaning from the Kindler Dictionary. English words get English → German.",
+  "permissions": ["contextMenus", "activeTab", "scripting"],
+  "host_permissions": ["https://kindler.ink/*"],
+  "background": {
+    "service_worker": "background.js",
+    "scripts": ["background.js"]
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "kindler-dictionary@kindler.ink",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": ["websiteContent"]
+      }
+    }
+  }
+}
