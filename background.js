@@ -12,9 +12,13 @@ api.runtime.onInstalled.addListener(async () => {
   });
 });
 
-// „Haus," -> Haus; inner punctuation (geht's, E-Mail) stays
+// „Haus," -> Haus; inner punctuation (geht's, E-Mail) stays; one trailing "." stays for
+// abbreviations (usw.), Kindler retries without it. Soft hyphens and zero-width spaces go.
 function cleanWord(text) {
-  return (text || "").replace(/^[\s\p{P}]+|[\s\p{P}]+$/gu, "");
+  const s = (text || "").replace(/[­​]/g, "").replace(/^[\s\p{P}]+/u, "");
+  const tail = s.match(/[\s\p{P}]*$/u)[0];
+  const body = s.slice(0, s.length - tail.length);
+  return body && tail.includes(".") ? `${body}.` : body;
 }
 
 api.contextMenus.onClicked.addListener(async (info, tab) => {
@@ -24,16 +28,23 @@ api.contextMenus.onClicked.addListener(async (info, tab) => {
   const pageUrl = `${KINDLER}/dictionary/de/search?q=${encodeURIComponent(word)}`;
   let frameId = info.frameId ?? 0;
   let corner = false;
-  try {
-    await api.scripting.executeScript({ target: { tabId: tab.id, frameIds: [frameId] }, files: ["content.js"] });
-  } catch {
-    // activeTab does not cover cross-origin iframes: show the box in the top page instead
-    frameId = 0;
-    corner = true;
-    await api.scripting.executeScript({ target: { tabId: tab.id, frameIds: [0] }, files: ["content.js"] });
-  }
+  const inject = (frame) => api.scripting.executeScript({ target: { tabId: tab.id, frameIds: [frame] }, files: ["content.js"] });
   const send = (msg) => api.tabs.sendMessage(tab.id, { id, word, ...msg }, { frameId });
-  await send({ type: "show", corner });
+  try {
+    try {
+      await inject(frameId);
+    } catch {
+      // activeTab does not cover cross-origin iframes: show the box in the top page instead
+      frameId = 0;
+      corner = true;
+      await inject(0);
+    }
+    await send({ type: "show", corner });
+  } catch {
+    // pages no add-on may touch (Reader View, PDF viewer, store pages): use the full page instead
+    api.tabs.create({ url: pageUrl });
+    return;
+  }
   try {
     const r = await fetch(`${KINDLER}/dictionary/search.json?q=${encodeURIComponent(word)}`);
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
