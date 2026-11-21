@@ -1,6 +1,6 @@
 # Publishing on Firefox (addons.mozilla.org)
 
-You need: a Mozilla account, the zip from `./package.sh`, and the texts in [listing.md](listing.md).
+You need: a Mozilla account, the zip from the GitHub release (see [README.md](README.md)), and the texts in [listing.md](listing.md).
 
 ## First submission
 
@@ -25,7 +25,7 @@ You need: a Mozilla account, the zip from `./package.sh`, and the texts in [list
 
 ## Updating to a new version
 
-1. Follow "Every release" in [README.md](README.md) (bump version, test, `./package.sh`).
+1. Follow "Every release" in [README.md](README.md) (test, merge, download the zip).
 2. https://addons.mozilla.org/developers/ → **Kindler Dictionary** → **Upload New Version**.
 3. Upload the new zip; platforms Firefox only; source code **No**.
 4. Optional "Release notes" (shown to users) and "Notes to reviewer".
