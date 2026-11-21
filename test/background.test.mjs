@@ -1,4 +1,4 @@
-// Loads background.js with a stubbed browser API: node --test test/
+// Loads background.js with a stubbed browser API: node --test test/*.test.mjs
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";

@@ -1,6 +1,6 @@
 # Publishing on the Chrome Web Store
 
-You need: a Google account, a Chrome Web Store developer account (one-time US$5 registration fee, charged once per Google account; skipped if that account already paid it), the zip from `./package.sh`, the texts in [listing.md](listing.md), and the images in `images/`.
+You need: a Google account, a Chrome Web Store developer account (one-time US$5 registration fee, charged once per Google account; skipped if that account already paid it), the zip from the GitHub release (see [README.md](README.md)), the texts in [listing.md](listing.md), and the images in `images/`.
 
 The same listing works for Chromium, Brave, Edge and other Chromium-based browsers: they install from the Chrome Web Store.
 
@@ -66,7 +66,7 @@ The same listing works for Chromium, Brave, Edge and other Chromium-based browse
 
 ## Updating to a new version
 
-1. Follow "Every release" in [README.md](README.md) (bump version, test, `./package.sh`).
+1. Follow "Every release" in [README.md](README.md) (test, merge, download the zip).
 2. Developer console → **Kindler Dictionary** → **Package** → **Upload new package** → choose the new zip.
 3. If permissions changed, update the **Privacy** tab first.
 4. **Submit for review.** Users get the update automatically after approval.
